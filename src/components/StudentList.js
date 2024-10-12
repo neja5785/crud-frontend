@@ -42,7 +42,6 @@ const StudentList = ({ onEdit, onDelete }) => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Birth Date</th>
