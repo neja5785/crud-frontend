@@ -58,7 +58,7 @@ const StudentList = ({ onEdit, onDelete }) => {
                 <td>{student.id}</td>
                 <td>{student.first_name}</td>
                 <td>{student.last_name}</td>
-                <td>{student.birth_date}</td>
+                <td>{new Date(student.birth_date).toLocaleDateString('en-CA')}</td>
                 <td>{student.course}</td>
                 <td>{student.is_erasmus ? 'Yes' : 'No'}</td>
                 <td>
