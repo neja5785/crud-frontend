@@ -1,13 +1,81 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Move header higher */
+.header {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 0px; /* Remove top margin */
+  margin-bottom: 10px; /* Slight bottom margin for spacing */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Adjust container to reduce space above and below the form */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh; /* Decrease height of the container to avoid too much space */
+  padding-top: 5px;  /* Reduce padding at the top */
+  padding-bottom: 5px; /* Reduce padding at the bottom */
+}
+
+/* Form styling */
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 5px; /* Reduce space after form */
+}
+
+input, select, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px; /* Reduce margin between input fields */
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -5px; /* Bring error message closer to the field */
+  margin-bottom: 5px; /* Consistent spacing below error messages */
+}
+
+/* Erasmus checkbox alignment */
+.erasmus-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px; /* Reduce space below checkbox */
+}
+
+/* Table Styling (if used) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 5px; /* Reduce space between the header and form */
+}
+
+/* Align the Erasmus checkbox with the label */
+.erasmus-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the label and the checkbox */
+}
+
+.erasmus-container label {
+  margin: 0; /* Ensure no margin between label and checkbox */
+}
+
+.erasmus-container input[type="checkbox"] {
+  margin: 0; /* Ensure no extra margins for checkbox */
+  width: auto; /* Ensure checkbox doesn’t stretch */
 }

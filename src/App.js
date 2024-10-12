@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import StudentList from './components/StudentList';
 import AddStudent from './components/AddStudent';
 import EditStudent from './components/EditStudent';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [editingStudent, setEditingStudent] = useState(null);
@@ -21,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Student Management System</h1>
       <AddStudent onAdd={() => window.location.reload()} /> {/* Reload after adding */}
       <StudentList onEdit={handleEditStudent} onDelete={handleDeleteStudent} />
       {editingStudent && <EditStudent student={editingStudent} onUpdate={() => window.location.reload()} />}
