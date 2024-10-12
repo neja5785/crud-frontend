@@ -55,7 +55,6 @@ const StudentList = ({ onEdit, onDelete }) => {
           {students.length > 0 ? (
             students.map((student) => (
               <tr key={student.id}>
-                <td>{student.id}</td>
                 <td>{student.first_name}</td>
                 <td>{student.last_name}</td>
                 <td>{new Date(student.birth_date).toLocaleDateString('en-CA')}</td>
