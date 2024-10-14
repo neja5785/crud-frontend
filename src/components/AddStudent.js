@@ -7,31 +7,27 @@ const AddStudent = ({ onAdd }) => {
   const [birthDate, setBirthDate] = useState('');
   const [course, setCourse] = useState('');
   const [isErasmus, setIsErasmus] = useState(false);
-  const [errors, setErrors] = useState({});  // For client-side validation
-  const [backendErrors, setBackendErrors] = useState([]);  // For backend validation errors
-
-  const today = new Date().toISOString().split('T')[0];  // Current date
+  const [errors, setErrors] = useState({});  
+  const [backendErrors, setBackendErrors] = useState([]); 
+  const today = new Date().toISOString().split('T')[0];  
 
   const validateForm = () => {
     const errors = {};
     const nameRegex = /^[A-Za-z\s]+$/;
     const minDate = new Date('1900-01-01');
 
-    // First name validation (max 40 characters and letters-only)
     if (firstName.length > 40) {
       errors.firstName = 'First name cannot exceed 40 characters';
     } else if (firstName && !nameRegex.test(firstName)) {
       errors.firstName = 'First name must contain only letters';
     }
 
-    // Last name validation (max 40 characters and letters-only)
     if (lastName.length > 40) {
       errors.lastName = 'Last name cannot exceed 40 characters';
     } else if (lastName && !nameRegex.test(lastName)) {
       errors.lastName = 'Last name must contain only letters';
     }
 
-    // Birth date validation (cannot be in future or before 1900-01-01)
     const birthDateObject = new Date(birthDate);
     if (birthDate && (birthDateObject > new Date())) {
       errors.birthDate = 'Birth date cannot be in the future';
@@ -39,7 +35,6 @@ const AddStudent = ({ onAdd }) => {
       errors.birthDate = 'Birth date cannot be before 1900-01-01';
     }
 
-    // Course validation
     if (!course || isNaN(course) || parseInt(course) < 1) {
       errors.course = 'Course must be a number greater than 0';
     }
@@ -51,10 +46,8 @@ const AddStudent = ({ onAdd }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Clear previous backend errors
     setBackendErrors([]);
 
-    // Validate the form before submission
     if (!validateForm()) return;
 
     const newStudent = {
@@ -75,7 +68,7 @@ const AddStudent = ({ onAdd }) => {
       setIsErasmus(false);
     } catch (error) {
       if (error.response && error.response.data.errors) {
-        setBackendErrors(error.response.data.errors);  // Display backend validation errors
+        setBackendErrors(error.response.data.errors);  
       } else {
         console.error('Error adding student:', error);
       }
@@ -139,7 +132,7 @@ const AddStudent = ({ onAdd }) => {
         </label>
       </div>
 
-      {/* Display backend validation errors */}
+      {}
       {backendErrors.length > 0 && (
         <div className="backend-errors">
           {backendErrors.map((err, index) => (

@@ -7,8 +7,8 @@ const EditStudent = ({ student, onUpdate }) => {
   const [birthDate, setBirthDate] = useState('');
   const [course, setCourse] = useState('');
   const [isErasmus, setIsErasmus] = useState(false);
-  const [errors, setErrors] = useState({});  // For client-side validation
-  const [backendErrors, setBackendErrors] = useState([]);  // For backend validation errors
+  const [errors, setErrors] = useState({}); 
+  const [backendErrors, setBackendErrors] = useState([]);  
 
   useEffect(() => {
     if (student) {
@@ -26,21 +26,21 @@ const EditStudent = ({ student, onUpdate }) => {
     const today = new Date();
     const minDate = new Date('1900-01-01');
 
-    // First name validation (max 40 characters, letters only)
+    
     if (firstName.length > 40) {
       errors.firstName = 'First name cannot exceed 40 characters';
     } else if (firstName && !nameRegex.test(firstName)) {
       errors.firstName = 'First name must contain only letters';
     }
 
-    // Last name validation (max 40 characters, letters only)
+    
     if (lastName.length > 40) {
       errors.lastName = 'Last name cannot exceed 40 characters';
     } else if (lastName && !nameRegex.test(lastName)) {
       errors.lastName = 'Last name must contain only letters';
     }
 
-    // Birth date validation (cannot be in future or before 1900-01-01)
+    
     const birthDateObject = new Date(birthDate);
     if (birthDate && (birthDateObject > today)) {
       errors.birthDate = 'Birth date cannot be in the future';
@@ -48,7 +48,7 @@ const EditStudent = ({ student, onUpdate }) => {
       errors.birthDate = 'Birth date cannot be before 1900-01-01';
     }
 
-    // Course validation
+    
     if (!course || isNaN(course) || parseInt(course) < 1) {
       errors.course = 'Course must be a number greater than 0';
     }
@@ -60,10 +60,10 @@ const EditStudent = ({ student, onUpdate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Clear previous backend errors
+    
     setBackendErrors([]);
 
-    // Validate the form before submission
+    
     if (!validateForm()) return;
 
     const updatedStudent = {
@@ -155,7 +155,7 @@ const EditStudent = ({ student, onUpdate }) => {
         />
       </div>
 
-      {/* Display backend validation errors */}
+      {}
       {backendErrors.length > 0 && (
         <div className="backend-errors">
           {backendErrors.map((err, index) => (

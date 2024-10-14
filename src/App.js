@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import StudentList from './components/StudentList';
 import AddStudent from './components/AddStudent';
@@ -16,8 +15,7 @@ function App() {
     await fetch(`${process.env.REACT_APP_API_URL}/students/${studentId}`, {
       method: 'DELETE',
     });
-    // Refresh the page or update state to remove deleted student
-    window.location.reload(); // This will refresh the page and show the updated list
+    window.location.reload(); 
   };
 
   return (

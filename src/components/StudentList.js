@@ -3,42 +3,38 @@ import axios from 'axios';
 
 const StudentList = ({ onEdit, onDelete }) => {
   const [students, setStudents] = useState([]);
-  const [search, setSearch] = useState('');  // For search query
+  const [search, setSearch] = useState(''); 
 
-  // Fetch all students or filtered students when the component mounts or search query changes
   useEffect(() => {
-    console.log('Search query updated:', search);  // Debug: Log the search query
-
     const fetchStudents = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/students`, {
           params: { search }
         });
-        console.log('Students fetched from backend:', response.data);  // Debug: Log backend response
-        setStudents(response.data);  // Set the filtered students
+        setStudents(response.data);  
       } catch (error) {
         console.error('Error fetching students:', error);
       }
     };
 
-    fetchStudents();  // Call the function inside useEffect
-  }, [search]);  // Re-run the effect whenever `search` changes
+    fetchStudents();  
+  }, [search]);  
 
   return (
     <div>
       <h2>Students List</h2>
       
-      {/* Search Input */}
+      {}
       <div>
         <input
           type="text"
           placeholder="Search by name"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}  // Update search state when typing
+          onChange={(e) => setSearch(e.target.value)}  
         />
       </div>
 
-      {/* Students Table */}
+      {}
       <table>
         <thead>
           <tr>
