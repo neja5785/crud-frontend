@@ -14,7 +14,8 @@ const EditStudent = ({ student, onUpdate }) => {
     if (student) {
       setFirstName(student.first_name);
       setLastName(student.last_name);
-      setBirthDate(student.birth_date);
+      const formattedBirthDate = student.birth_date ? student.birth_date.split('T')[0] : '';
+      setBirthDate(formattedBirthDate);
       setCourse(student.course);
       setIsErasmus(student.is_erasmus);
     }
