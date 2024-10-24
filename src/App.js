@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <AddStudent onAdd={() => window.location.reload()} /> {/* Reload after adding */}
+      <AddStudent onAdd={() => window.location.reload()} /> {}
       <StudentList onEdit={handleEditStudent} onDelete={handleDeleteStudent} />
       {editingStudent && <EditStudent student={editingStudent} onUpdate={() => window.location.reload()} />}
     </div>
