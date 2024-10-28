@@ -123,7 +123,7 @@ const AddStudent = ({ onAdd }) => {
 
       <div>
         <label>
-          Erasmus:
+          Erasmus: 
           <input
             type="checkbox"
             checked={isErasmus}
